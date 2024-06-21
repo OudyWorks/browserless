@@ -179,4 +179,9 @@ export interface SystemQueryParameters {
    * The id of the browser
    */
   id?: string;
+
+  /**
+   * TTL for the browser
+   */
+  ttl?: number;
 }
