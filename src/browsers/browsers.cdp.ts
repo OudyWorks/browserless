@@ -30,6 +30,7 @@ export class ChromiumCDP extends EventEmitter {
   protected browser: Browser | null = null;
   protected browserWSEndpoint: string | null = null;
   protected port?: number;
+  protected ttl?: number;
   protected logger: Logger;
   protected proxy = httpProxy.createProxyServer();
   protected executablePath = playwright.chromium.executablePath();
@@ -61,7 +62,7 @@ export class ChromiumCDP extends EventEmitter {
   }
 
   public keepUntil() {
-    return 0;
+    return this.ttl ? Date.now() + this.ttl : 0;
   }
 
   public getPageId(page: Page): string {
@@ -215,6 +216,7 @@ export class ChromiumCDP extends EventEmitter {
     this.browser = (await launch(finalOptions)) as Browser;
     this.browser.on('targetcreated', this.onTargetCreated.bind(this));
     this.running = true;
+    this.ttl = laucherOpts.ttl;
     this.browserWSEndpoint = this.browser.wsEndpoint();
     this.logger.info(
       `${this.constructor.name} is running on ${this.browserWSEndpoint}`,

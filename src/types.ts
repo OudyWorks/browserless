@@ -360,6 +360,7 @@ export interface BrowserLauncherOptions {
   pwVersion?: string;
   req?: Request;
   stealth?: boolean;
+  ttl?: number;
 }
 
 export interface BrowserServerOptions {
@@ -405,6 +406,7 @@ export interface BrowserlessSessionJSON {
   startedOn: number;
   timeAliveMs: number;
   trackingId?: string;
+  ttl: number;
   userDataDir: string | null;
 }
 
@@ -665,6 +667,7 @@ export const BrowserlessManagementRoutes = {
   MetricsTotalGetRoute: 'MetricsTotalGetRoute',
   PressureGetRoute: 'PressureGetRoute',
   SessionsGetRoute: 'SessionsGetRoute',
+  SessionGetRoute: 'SessionGetRoute',
   StaticGetRoute: 'StaticGetRoute',
 };
 

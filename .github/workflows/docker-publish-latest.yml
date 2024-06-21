@@ -33,71 +33,71 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           file: ./docker/base/Dockerfile
           tags: |
-            ghcr.io/browserless/base:latest
+            ghcr.io/oudyworks/browserless-base:latest
           context: .
           push: true
           platforms: |
             linux/amd64
             linux/arm64
 
-      - name: Publish the latest Chromium image
-        uses: docker/build-push-action@v5
-        with:
-          build-args: |
-            VERSION=latest
-          builder: ${{ steps.buildx.outputs.name }}
-          file: ./docker/chromium/Dockerfile
-          tags: |
-            ghcr.io/browserless/chromium:latest
-          context: .
-          push: true
-          platforms: |
-            linux/amd64
-            linux/arm64
+      # - name: Publish the latest Chromium image
+      #   uses: docker/build-push-action@v5
+      #   with:
+      #     build-args: |
+      #       VERSION=latest
+      #     builder: ${{ steps.buildx.outputs.name }}
+      #     file: ./docker/chromium/Dockerfile
+      #     tags: |
+      #       ghcr.io/browserless/chromium:latest
+      #     context: .
+      #     push: true
+      #     platforms: |
+      #       linux/amd64
+      #       linux/arm64
 
-      - name: Publish the latest Chrome image
-        uses: docker/build-push-action@v5
-        with:
-          build-args: |
-            VERSION=latest
-          builder: ${{ steps.buildx.outputs.name }}
-          file: ./docker/chrome/Dockerfile
-          tags: |
-            ghcr.io/browserless/chrome:latest
-          context: .
-          push: true
-          platforms: |
-            linux/amd64
+      # - name: Publish the latest Chrome image
+      #   uses: docker/build-push-action@v5
+      #   with:
+      #     build-args: |
+      #       VERSION=latest
+      #     builder: ${{ steps.buildx.outputs.name }}
+      #     file: ./docker/chrome/Dockerfile
+      #     tags: |
+      #       ghcr.io/browserless/chrome:latest
+      #     context: .
+      #     push: true
+      #     platforms: |
+      #       linux/amd64
 
-      - name: Publish the latest FireFox image
-        uses: docker/build-push-action@v5
-        with:
-          build-args: |
-            VERSION=latest
-          builder: ${{ steps.buildx.outputs.name }}
-          file: ./docker/firefox/Dockerfile
-          tags: |
-            ghcr.io/browserless/firefox:latest
-          context: .
-          push: true
-          platforms: |
-            linux/amd64
-            linux/arm64
+      # - name: Publish the latest FireFox image
+      #   uses: docker/build-push-action@v5
+      #   with:
+      #     build-args: |
+      #       VERSION=latest
+      #     builder: ${{ steps.buildx.outputs.name }}
+      #     file: ./docker/firefox/Dockerfile
+      #     tags: |
+      #       ghcr.io/browserless/firefox:latest
+      #     context: .
+      #     push: true
+      #     platforms: |
+      #       linux/amd64
+      #       linux/arm64
 
-      - name: Publish the latest Webkit image
-        uses: docker/build-push-action@v5
-        with:
-          build-args: |
-            VERSION=latest
-          builder: ${{ steps.buildx.outputs.name }}
-          file: ./docker/webkit/Dockerfile
-          tags: |
-            ghcr.io/browserless/webkit:latest
-          context: .
-          push: true
-          platforms: |
-            linux/amd64
-            linux/arm64
+      # - name: Publish the latest Webkit image
+      #   uses: docker/build-push-action@v5
+      #   with:
+      #     build-args: |
+      #       VERSION=latest
+      #     builder: ${{ steps.buildx.outputs.name }}
+      #     file: ./docker/webkit/Dockerfile
+      #     tags: |
+      #       ghcr.io/browserless/webkit:latest
+      #     context: .
+      #     push: true
+      #     platforms: |
+      #       linux/amd64
+      #       linux/arm64
 
       - name: Publish the latest Multi image
         uses: docker/build-push-action@v5
@@ -107,7 +107,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           file: ./docker/multi/Dockerfile
           tags: |
-            ghcr.io/browserless/multi:latest
+            ghcr.io/oudyworks/browserless-multi:latest
           context: .
           push: true
           platforms: |

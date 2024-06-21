@@ -23,6 +23,7 @@ class BasePlaywright extends EventEmitter {
   protected config: Config;
   protected userDataDir: string | null;
   protected running = false;
+  protected ttl?: number;
   protected logger: Logger;
   protected proxy = httpProxy.createProxyServer();
   protected browser: playwright.BrowserServer | null = null;
@@ -64,7 +65,7 @@ class BasePlaywright extends EventEmitter {
   }
 
   public keepUntil() {
-    return 0;
+    return this.ttl ? Date.now() + this.ttl : 0;
   }
 
   public isRunning(): boolean {

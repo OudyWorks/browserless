@@ -130,6 +130,7 @@ export enum HTTPManagementRoutes {
   metricsTotal = '/metrics/total',
   pressure = '/pressure',
   sessions = '/sessions',
+  session = '/session/*',
   static = '/',
 }
 
@@ -173,4 +174,9 @@ export interface SystemQueryParameters {
    * The authorization token
    */
   token?: string;
+
+  /**
+   * The id of the browser
+   */
+  id?: string;
 }

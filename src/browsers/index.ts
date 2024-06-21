@@ -31,12 +31,14 @@ import {
   parseBooleanParam,
   parseStringParam,
   pwVersionRegex,
+  parseNumberParam
 } from '@browserless.io/browserless';
 import { Page } from 'puppeteer-core';
 import { deleteAsync } from 'del';
 import path from 'path';
 
 export class BrowserManager {
+  protected identifiedBrowsers: Map<string, BrowserInstance> = new Map();
   protected browsers: Map<BrowserInstance, BrowserlessSession> = new Map();
   protected timers: Map<string, NodeJS.Timeout> = new Map();
   protected log = new Logger('browser-manager');
@@ -51,7 +53,7 @@ export class BrowserManager {
   constructor(
     protected config: Config,
     protected hooks: Hooks,
-  ) {}
+  ) { }
 
   protected browserIsChrome(b: BrowserInstance) {
     return this.chromeBrowsers.some(
@@ -235,10 +237,10 @@ export class BrowserManager {
           .href,
         killURL: session.id
           ? makeExternalURL(
-              serverAddress,
-              HTTPManagementRoutes.sessions,
-              session.id,
-            )
+            serverAddress,
+            HTTPManagementRoutes.sessions,
+            session.id,
+          )
           : null,
         running: browser.isRunning(),
         timeAliveMs: Date.now() - session.startedOn,
@@ -341,6 +343,14 @@ export class BrowserManager {
 
     return formattedSessions;
   }
+  public async getSessionById(id: string): Promise<BrowserlessSessionJSON | undefined> {
+    const browser = this.identifiedBrowsers.get(id);
+    if (!browser)
+      return;
+    const session = this.browsers.get(browser)!;
+
+    return this.generateSessionJson(browser, session) as unknown as Promise<BrowserlessSessionJSON>
+  };
 
   public async complete(browser: BrowserInstance): Promise<void> {
     const session = this.browsers.get(browser);
@@ -367,6 +377,20 @@ export class BrowserManager {
     router: BrowserHTTPRoute | BrowserWebsocketRoute,
     logger: Logger,
   ): Promise<BrowserInstance> {
+    const id = parseStringParam(
+      req.parsed.searchParams,
+      'id',
+      null!,
+    );
+
+    if (id && this.identifiedBrowsers.has(id)) {
+      const browser = this.identifiedBrowsers.get(id)!;
+      if (browser.isRunning())
+        return browser;
+      this.identifiedBrowsers.delete(id);
+      this.browsers.delete(browser);
+    }
+
     const { browser: Browser } = router;
     const blockAds = parseBooleanParam(
       req.parsed.searchParams,
@@ -400,6 +424,9 @@ export class BrowserManager {
 
       this.log.info(`Assigning session trackingId "${trackingId}"`);
     }
+
+    const ttl =
+      parseNumberParam(req.parsed.searchParams, 'ttl', 0) || 0;
 
     const decodedLaunchOptions = convertIfBase64(
       req.parsed.searchParams.get('launch') || '{}',
@@ -535,12 +562,13 @@ export class BrowserManager {
       options: launchOptions as BrowserServerOptions,
       pwVersion,
       req,
-      stealth: launchOptions?.stealth
+      stealth: launchOptions?.stealth,
+      ttl,
     });
     await this.hooks.browser({ browser, req });
 
     const session: BrowserlessSession = {
-      id: browser.wsEndpoint()?.split('/').pop() as string,
+      id: id || browser.wsEndpoint()?.split('/').pop() as string,
       initialConnectURL:
         path.join(req.parsed.pathname, req.parsed.search) || '',
       isTempDataDir: !manualUserDataDir,
@@ -550,10 +578,11 @@ export class BrowserManager {
       routePath: router.path,
       startedOn: Date.now(),
       trackingId,
-      ttl: 0,
+      ttl,
       userDataDir,
     };
 
+    this.identifiedBrowsers.set(session.id, browser);
     this.browsers.set(browser, session);
 
     browser.on('newPage', async (page: Page) => {
@@ -580,5 +609,5 @@ export class BrowserManager {
   /**
    * Left blank for downstream SDK modules to optionally implement.
    */
-  public stop() {}
+  public stop() { }
 }

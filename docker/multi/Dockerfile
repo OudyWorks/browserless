@@ -1,6 +1,6 @@
 ARG VERSION=latest
-FROM ghcr.io/browserless/base:$VERSION
-LABEL org.opencontainers.image.source https://github.com/browserless/browserless
+FROM ghcr.io/oudyworks/browserless-base:$VERSION
+LABEL org.opencontainers.image.source https://github.com/oudyworks/browserless
 
 ARG TARGETPLATFORM
 ENV TARGETPLATFORM=${TARGETPLATFORM}
