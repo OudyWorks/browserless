@@ -232,7 +232,7 @@ export class BrowserManager {
       {
         ...session,
         browser: browser.constructor.name,
-        browserId: session.id,
+        browserId: browser.wsEndpoint()?.split('/').pop() as string,
         initialConnectURL: new URL(session.initialConnectURL, serverAddress)
           .href,
         killURL: session.id
