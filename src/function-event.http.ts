@@ -25,7 +25,10 @@ export default class FunctionEventHTTPRoute extends HTTPRoute {
     logger.debug(`${req.method} /sse-event was called for SSE!`);
     // console.log("req.body", typeof req.body, req.body);
     const {id, data} = req.body as {id: string, data: any}
+    console.log("id", id, "data", data)
     eventBus.emit(id, data);
-    writeResponse(res, 200, 'success', contentTypes.text);
+    // const config = this.config()
+    // config.getExternalAddress = () => 'http://localhost:3000';
+    writeResponse(res, 200, "success", contentTypes.text);
   }
 }
