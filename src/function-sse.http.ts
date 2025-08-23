@@ -67,7 +67,7 @@ export default class ChromiumFunctionPostRoute extends BrowserHTTPRoute {
     const __id__ = id()
     req.headers['content-type'] = contentTypes.json
     req.body = {
-      code: `import event from "/event.mjs?id=${__id__}";` + code,
+      code: `import event from "http://localhost:3000/event.mjs?id=${__id__}";` + code,
       context,
     } as BodySchema
 
@@ -91,7 +91,6 @@ export default class ChromiumFunctionPostRoute extends BrowserHTTPRoute {
     eventBus.emit(__id__, { event: 'init', id: __id__ });
 
     const config = this.config();
-    config.enableCORS(true);
     const handler = functionHandler(config, logger);
     const { contentType, payload, page } = await handler(req, browser);
     logger.info(`Got function response of "${contentType}" with payload:`, payload);
