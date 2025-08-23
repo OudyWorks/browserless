@@ -29,22 +29,22 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
-        with:
-          run_install: false
-
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: "pnpm"
+          # cache: "pnpm"
+
+      # - uses: pnpm/action-setup@v4
+      #   name: Install pnpm
+      #   with:
+      #     run_install: false
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Build
-        run: pnpm build
+        run: npm run build
 
       - name: Copy Dockerfile
         run: cp node_modules/@browserless.io/browserless/docker/sdk/Dockerfile ./build/Dockerfile
