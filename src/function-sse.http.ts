@@ -91,6 +91,7 @@ export default class ChromiumFunctionPostRoute extends BrowserHTTPRoute {
     eventBus.emit(__id__, { event: 'init', id: __id__ });
 
     const config = this.config();
+    config.enableCORS(true);
     const handler = functionHandler(config, logger);
     const { contentType, payload, page } = await handler(req, browser);
     logger.info(`Got function response of "${contentType}" with payload:`, payload);
