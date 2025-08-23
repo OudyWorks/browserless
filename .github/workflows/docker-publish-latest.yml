@@ -15,6 +15,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v3
@@ -45,9 +48,6 @@ jobs:
 
       - name: Copy Dockerfile
         run: cp node_modules/@browserless.io/browserless/docker/sdk/Dockerfile ./build/Dockerfile
-
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
 
       - name: Publish the latest Multi image
         uses: docker/build-push-action@v5
