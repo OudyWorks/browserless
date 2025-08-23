@@ -19,8 +19,5 @@
   "dependencies": {
     "@browserless.io/browserless": "^2.34.1"
   },
-  "packageManager": "pnpm@10.15.0",
-  "devDependencies": {
-    "typescript": "^5.9.2"
-  }
+  "packageManager": "pnpm@10.15.0"
 }
