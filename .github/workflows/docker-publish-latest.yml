@@ -59,7 +59,7 @@ jobs:
           file: ./build/Dockerfile
           tags: |
             ghcr.io/oudyworks/browserless:latest
-          context: build
+          context: .
           push: true
           platforms: |
             linux/amd64
