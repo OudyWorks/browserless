@@ -4,7 +4,7 @@ import {
   BrowserInstance,
   // BrowserlessRoutes,
   CDPLaunchOptions,
-  ChromiumCDP,
+  ChromeCDP,
   Logger,
   Methods,
   Request,
@@ -44,7 +44,7 @@ export default class ChromiumFunctionPostRoute extends BrowserHTTPRoute {
   name = "ChromiumFunctionSSEPostRoute";
   accepts = [contentTypes.json, contentTypes.javascript];
   auth = true;
-  browser = ChromiumCDP;
+  browser = ChromeCDP;
   concurrency = !true;
   contentTypes = [sseContentType];
   description = dedent(`
@@ -54,7 +54,7 @@ export default class ChromiumFunctionPostRoute extends BrowserHTTPRoute {
   Values returned from the function are checked and an appropriate content-type and response is sent back
   to your HTTP call.`);
   method = Methods.post;
-  path = ["/function-sse?(/)", "/chromium/function?(/)"];
+  path = ["/function-sse?(/)", "/chrome/function-sse?(/)"];
   tags = [APITags.browserAPI];
   async handler(
     req: Request,
