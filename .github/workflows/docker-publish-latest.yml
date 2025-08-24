@@ -58,6 +58,9 @@ jobs:
       - name: Make start script executable in Dockerfile
         run: sed -i '/COPY start.sh .*/a RUN chmod +x ./start.sh' ./build/Dockerfile
 
+      - name: Change CMD in Dockerfile
+        run: sed -i 's|CMD \["npm", "start"\]|CMD \["./start.sh"\]|' ./build/Dockerfile
+
       - name: Publish the latest Multi image
         uses: docker/build-push-action@v5
         with:
