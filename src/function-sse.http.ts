@@ -40,8 +40,8 @@ export interface QuerySchema extends SystemQueryParameters {
 export type ResponseSchema = unknown;
 
 const sseContentType = 'text/event-stream' as contentTypes;
-export default class ChromiumFunctionPostRoute extends BrowserHTTPRoute {
-  name = "ChromiumFunctionSSEPostRoute";
+export default class ChromeFunctionPostRoute extends BrowserHTTPRoute {
+  name = "ChromeFunctionSSEPostRoute";
   accepts = [contentTypes.json, contentTypes.javascript];
   auth = true;
   browser = ChromeCDP;
@@ -96,9 +96,9 @@ export default class ChromiumFunctionPostRoute extends BrowserHTTPRoute {
     const { contentType, payload, page } = await handler(req, browser);
     logger.info(`Got function response of "${contentType}" with payload:`, payload);
     res.write(`data: ${JSON.stringify(JSON.parse(payload as string))}\n\n`);
+    res.end();
     page.close();
     page.removeAllListeners();
     eventBus.removeAllListeners(__id__);
-    res.end();
   }
 }

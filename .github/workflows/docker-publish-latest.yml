@@ -52,6 +52,12 @@ jobs:
       - name: Add static files to Dockerfile
         run: sed -i '/COPY src src/a COPY static static' ./build/Dockerfile
 
+      - name: Add start script to Dockerfile
+        run: sed -i '/COPY static static/a COPY start.sh .' ./build/Dockerfile
+
+      - name: Make start script executable in Dockerfile
+        run: sed -i '/COPY start.sh .*/a RUN chmod +x ./start.sh' ./build/Dockerfile
+
       - name: Publish the latest Multi image
         uses: docker/build-push-action@v5
         with:
