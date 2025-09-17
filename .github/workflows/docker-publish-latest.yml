@@ -49,6 +49,9 @@ jobs:
       - name: Copy Dockerfile
         run: cp node_modules/@browserless.io/browserless/docker/sdk/Dockerfile ./build/Dockerfile
 
+      - name: Add browser install command to Dockerfile
+        run: sed -i '/RUN npm install/a RUN npm install:browsers' ./build/Dockerfile
+
       - name: Add static files to Dockerfile
         run: sed -i '/COPY src src/a COPY static static' ./build/Dockerfile
 
