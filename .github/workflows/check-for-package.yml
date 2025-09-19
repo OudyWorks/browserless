@@ -1,0 +1,82 @@
+name: Check for New Docker Package in Another Repo
+
+# Run this workflow every hour, and also allow manual runs from the Actions tab
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs at the top of every hour
+  workflow_dispatch:   # Allows you to trigger it manually for testing
+
+# Grant permissions for the workflow to read package info and write tags
+permissions:
+  contents: write    # To create and push a new tag
+  packages: read     # To read package versions from the other repo
+
+jobs:
+  check-and-run:
+    runs-on: ubuntu-latest
+    
+    # Define repository and package names here for easy editing
+    env:
+      REPO_B_OWNER: 'browserless' # <-- CHANGE THIS
+      REPO_B_NAME: 'browserless'   # <-- CHANGE THIS
+      PACKAGE_NAME: 'multi' # <-- CHANGE THIS
+      TAG_PREFIX: 'upstream-'          # Prefix for the tags we create
+      
+    steps:
+      - name: 1. Get latest package version from Repo B
+        id: get_package_version
+        run: |
+          # Use the GitHub CLI to query the API for the latest version of the package
+          LATEST_VERSION=$(gh api \
+            "repos/${{ env.REPO_B_OWNER }}/${{ env.REPO_B_NAME }}/packages/container/${{ env.PACKAGE_NAME }}/versions" \
+            --jq '.[0].metadata.container.tags[0]')
+
+          if [ -z "$LATEST_VERSION" ]; then
+            echo "Could not fetch latest package version. Exiting."
+            exit 1
+          fi
+
+          echo "Latest version found in Repo B: $LATEST_VERSION"
+          echo "version=$LATEST_VERSION" >> "$GITHUB_OUTPUT"
+        env:
+          # The GITHUB_TOKEN has the necessary 'packages:read' permission
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: 2. Check if a tag for this version already exists in this repo
+        id: check_tag
+        # This step will 'fail' if the grep command doesn't find a matching tag, which is what we want.
+        # We use 'continue-on-error' so the workflow doesn't stop here.
+        continue-on-error: true
+        run: |
+          TAG_TO_CHECK="${{ env.TAG_PREFIX }}${{ steps.get_package_version.outputs.version }}"
+          echo "Checking for our tag: $TAG_TO_CHECK"
+          
+          # Check for the tag in the remote repository
+          git ls-remote --tags origin | grep "refs/tags/$TAG_TO_CHECK"
+
+      - name: 3. Run your job if the tag does not exist
+        # This is the core logic: the job only runs if the 'check_tag' step failed (i.e., the tag was not found).
+        if: steps.check_tag.outcome == 'failure'
+        run: |
+          echo "New version ${{ steps.get_package_version.outputs.version }} detected! Running jobs..."
+          # -----------------------------------------------------------------
+          # YOUR ACTIONS GO HERE
+          #
+          # Example: Pull the new Docker image and run tests
+          # docker pull ghcr.io/${{ env.REPO_B_OWNER }}/${{ env.PACKAGE_NAME }}:${{ steps.get_package_version.outputs.version }}
+          # docker run ...
+          # -----------------------------------------------------------------
+
+      - name: 4. Create and push a new tag to mark this version as processed
+        if: steps.check_tag.outcome == 'failure'
+        run: |
+          NEW_TAG="${{ env.TAG_PREFIX }}${{ steps.get_package_version.outputs.version }}"
+          echo "Tagging this repo with $NEW_TAG to prevent re-running for this version."
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag "$NEW_TAG" -m "Automatically processed package version ${{ steps.get_package_version.outputs.version }}"
+          git push origin "$NEW_TAG"
+
+      - name: Conclude if no new version was found
+        if: steps.check_tag.outcome == 'success'
+        run: echo "No new package version found. Nothing to do."
