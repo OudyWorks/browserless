@@ -103,3 +103,8 @@ jobs:
           platforms: |
             linux/amd64
             linux/arm64
+      - uses: actions/delete-package-versions@v5
+        with: 
+          package-name: 'browserless'
+          package-type: 'container'
+          delete-only-untagged-versions: 'true'
