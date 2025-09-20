@@ -5,7 +5,7 @@ on:
     branches:
       - main
     tags:
-      - 'upstream-*'
+      - '*'
 
 jobs:
   push_to_registry:
