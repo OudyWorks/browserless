@@ -79,6 +79,16 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git tag "$NEW_TAG" -m "Automatically processed package version ${{ steps.get_package_version.outputs.version }}"
           git push origin "$NEW_TAG"
+          
+          # Save the new tag to an artifact to be used by the next workflow
+          echo $NEW_TAG > new_tag.txt
+
+      - name: Upload tag artifact
+        if: steps.check_tag.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: new-tag-artifact
+          path: new_tag.txt
 
       - name: Conclude if no new version was found
         if: steps.check_tag.outcome == 'success'
