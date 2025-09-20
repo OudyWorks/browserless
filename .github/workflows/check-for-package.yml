@@ -23,6 +23,9 @@ jobs:
       TAG_PREFIX: 'upstream-'          # Prefix for the tags we create
       
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: 1. Get latest package version from Repo B
         id: get_package_version
         run: |
