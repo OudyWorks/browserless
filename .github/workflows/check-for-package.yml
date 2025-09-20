@@ -20,7 +20,7 @@ jobs:
       REPO_B_OWNER: 'browserless' # <-- CHANGE THIS
       REPO_B_NAME: 'browserless'   # <-- CHANGE THIS
       PACKAGE_NAME: 'multi' # <-- CHANGE THIS
-      TAG_PREFIX: 'upstream-'          # Prefix for the tags we create
+      TAG_PREFIX: ''          # Prefix for the tags we create
       
     steps:
       - name: Checkout repository
