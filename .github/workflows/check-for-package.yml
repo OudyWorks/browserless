@@ -29,7 +29,7 @@ jobs:
           # Use the GitHub CLI to query the API for the latest version of the package
           LATEST_VERSION=$(gh api \
             "orgs/${{ env.REPO_B_OWNER }}/packages/container/${{ env.PACKAGE_NAME }}/versions" \
-            --jq '.[0].metadata.container.tags | map(select(. != "latest"))[0]'
+            --jq '.[0].metadata.container.tags | map(select(. != "latest"))[0]')
 
           if [ -z "$LATEST_VERSION" ]; then
             echo "Could not fetch latest package version. Exiting."
