@@ -66,6 +66,16 @@ jobs:
       - name: Change CMD in Dockerfile
         run: sed -i 's|CMD \["npm", "start"\]|CMD \["./start.sh"\]|' ./build/Dockerfile
 
+      - name: Determine Docker tags
+        id: docker_tags
+        run: |
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            TAG=${GITHUB_REF#refs/tags/}
+            echo "tags=ghcr.io/oudyworks/browserless:$TAG,ghcr.io/oudyworks/browserless:latest" >> $GITHUB_OUTPUT
+          else
+            echo "tags=ghcr.io/oudyworks/browserless:latest" >> $GITHUB_OUTPUT
+          fi
+
       - name: Publish the latest Multi image
         uses: docker/build-push-action@v5
         with:
@@ -74,8 +84,7 @@ jobs:
             FROM=ghcr.io/browserless/multi:latest
           builder: ${{ steps.buildx.outputs.name }}
           file: ./build/Dockerfile
-          tags: |
-            ghcr.io/oudyworks/browserless:latest
+          tags: ${{ steps.docker_tags.outputs.tags }}
           context: .
           push: true
           platforms: |
