@@ -28,7 +28,7 @@ jobs:
         run: |
           # Use the GitHub CLI to query the API for the latest version of the package
           LATEST_VERSION=$(gh api \
-            "repos/${{ env.REPO_B_OWNER }}/${{ env.REPO_B_NAME }}/packages/container/${{ env.PACKAGE_NAME }}/versions" \
+            "orgs/${{ env.REPO_B_OWNER }}/packages/container/${{ env.PACKAGE_NAME }}/versions" \
             --jq '.[0].metadata.container.tags[0]')
 
           if [ -z "$LATEST_VERSION" ]; then
