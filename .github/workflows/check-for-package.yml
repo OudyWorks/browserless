@@ -90,6 +90,9 @@ jobs:
           name: new-tag-artifact
           path: new_tag.txt
 
-      - name: Conclude if no new version was found
+      - name: Conclude workflow
         if: steps.check_tag.outcome == 'success'
-        run: echo "No new package version found. Nothing to do."
+        run: |
+          echo "No new package version found. Nothing to do."
+          # Exit with a non-zero status to mark the workflow as failed
+          exit 1
