@@ -56,7 +56,7 @@ jobs:
       #     run_install: false
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       # - name: Build
       #   run: npm run build
@@ -101,6 +101,7 @@ jobs:
           platforms: |
             linux/amd64
             linux/arm64
+          provenance: false
       - uses: actions/delete-package-versions@v5
         with: 
           package-name: 'browserless'
