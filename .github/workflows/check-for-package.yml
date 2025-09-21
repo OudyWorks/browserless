@@ -92,6 +92,7 @@ jobs:
 
       - name: Conclude workflow
         if: steps.check_tag.outcome == 'success'
+        continue-on-error: true
         run: |
           echo "No new package version found. Nothing to do."
           # Exit with a non-zero status to mark the workflow as failed
