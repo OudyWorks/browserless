@@ -73,6 +73,7 @@ jobs:
           sed -i '/COPY src src/a COPY static static' /tmp/docker-build/Dockerfile
           sed -i '/COPY static static/a COPY start.sh .' /tmp/docker-build/Dockerfile
           sed -i '/COPY start.sh .*/a RUN chmod +x ./start.sh' /tmp/docker-build/Dockerfile
+          sed -i 's|RUN npm install|RUN npm ci|' /tmp/docker-build/Dockerfile
           sed -i 's|CMD \["npm", "start"\]|CMD \["./start.sh"\]|' /tmp/docker-build/Dockerfile
 
       - name: Determine Docker tags
