@@ -61,23 +61,19 @@ jobs:
       # - name: Build
       #   run: npm run build
 
-      - name: Copy Dockerfile
-        run: cp node_modules/@browserless.io/browserless/docker/sdk/Dockerfile ./Dockerfile
+      - name: Prepare Dockerfile in a temporary directory
+        run: |
+          # Create a temporary directory outside the build context
+          mkdir -p /tmp/docker-build
 
-      # - name: Add browser install command to Dockerfile
-      #   run: sed -i '/RUN npm install/a RUN npm run install:browsers' ./Dockerfile
+          # Copy the base Dockerfile to the temporary location
+          cp node_modules/@browserless.io/browserless/docker/sdk/Dockerfile /tmp/docker-build/Dockerfile
 
-      - name: Add static files to Dockerfile
-        run: sed -i '/COPY src src/a COPY static static' ./Dockerfile
-
-      - name: Add start script to Dockerfile
-        run: sed -i '/COPY static static/a COPY start.sh .' ./Dockerfile
-
-      - name: Make start script executable in Dockerfile
-        run: sed -i '/COPY start.sh .*/a RUN chmod +x ./start.sh' ./Dockerfile
-
-      - name: Change CMD in Dockerfile
-        run: sed -i 's|CMD \["npm", "start"\]|CMD \["./start.sh"\]|' ./Dockerfile
+          # Perform all modifications on the temporary Dockerfile
+          sed -i '/COPY src src/a COPY static static' /tmp/docker-build/Dockerfile
+          sed -i '/COPY static static/a COPY start.sh .' /tmp/docker-build/Dockerfile
+          sed -i '/COPY start.sh .*/a RUN chmod +x ./start.sh' /tmp/docker-build/Dockerfile
+          sed -i 's|CMD \["npm", "start"\]|CMD \["./start.sh"\]|' /tmp/docker-build/Dockerfile
 
       - name: Determine Docker tags
         id: docker_tags
@@ -96,8 +92,10 @@ jobs:
             VERSION=latest
             FROM=ghcr.io/browserless/multi:latest
           builder: ${{ steps.buildx.outputs.name }}
-          file: ./Dockerfile
+          # Use the Dockerfile from the temporary location
+          file: /tmp/docker-build/Dockerfile
           tags: ${{ steps.docker_tags.outputs.tags }}
+          # The context is still the clean project root
           context: .
           push: true
           platforms: |
