@@ -58,26 +58,26 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build
+      # - name: Build
+      #   run: npm run build
 
       - name: Copy Dockerfile
-        run: cp node_modules/@browserless.io/browserless/docker/sdk/Dockerfile ./build/Dockerfile
+        run: cp node_modules/@browserless.io/browserless/docker/sdk/Dockerfile ./Dockerfile
 
       # - name: Add browser install command to Dockerfile
-      #   run: sed -i '/RUN npm install/a RUN npm run install:browsers' ./build/Dockerfile
+      #   run: sed -i '/RUN npm install/a RUN npm run install:browsers' ./Dockerfile
 
       - name: Add static files to Dockerfile
-        run: sed -i '/COPY src src/a COPY static static' ./build/Dockerfile
+        run: sed -i '/COPY src src/a COPY static static' ./Dockerfile
 
       - name: Add start script to Dockerfile
-        run: sed -i '/COPY static static/a COPY start.sh .' ./build/Dockerfile
+        run: sed -i '/COPY static static/a COPY start.sh .' ./Dockerfile
 
       - name: Make start script executable in Dockerfile
-        run: sed -i '/COPY start.sh .*/a RUN chmod +x ./start.sh' ./build/Dockerfile
+        run: sed -i '/COPY start.sh .*/a RUN chmod +x ./start.sh' ./Dockerfile
 
       - name: Change CMD in Dockerfile
-        run: sed -i 's|CMD \["npm", "start"\]|CMD \["./start.sh"\]|' ./build/Dockerfile
+        run: sed -i 's|CMD \["npm", "start"\]|CMD \["./start.sh"\]|' ./Dockerfile
 
       - name: Determine Docker tags
         id: docker_tags
@@ -96,7 +96,7 @@ jobs:
             VERSION=latest
             FROM=ghcr.io/browserless/multi:latest
           builder: ${{ steps.buildx.outputs.name }}
-          file: ./build/Dockerfile
+          file: ./Dockerfile
           tags: ${{ steps.docker_tags.outputs.tags }}
           context: .
           push: true
