@@ -67,7 +67,7 @@ export default class ChromeFunctionPostRoute extends BrowserHTTPRoute {
     const __id__ = id()
     req.headers['content-type'] = contentTypes.json
     req.body = {
-      code: `import event from "/event.mjs?id=${__id__}";` + code,
+      code: `import event from "/event.mjs?id=${__id__}";\n\n` + code,
       context,
     } as BodySchema
 
