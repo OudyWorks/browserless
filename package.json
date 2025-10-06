@@ -17,7 +17,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@browserless.io/browserless": "^2.34.1"
+    "@browserless.io/browserless": "^2.37.0"
   },
-  "packageManager": "pnpm@10.17.0"
+  "packageManager": "pnpm@10.18.1"
 }

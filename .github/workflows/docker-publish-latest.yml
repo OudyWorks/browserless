@@ -103,6 +103,10 @@ jobs:
             linux/amd64
             linux/arm64
           provenance: false
+          sbom: false
+          # Enable build cache for faster builds and better layer reuse
+          cache-from: type=registry,ref=ghcr.io/oudyworks/browserless:buildcache
+          cache-to: type=registry,ref=ghcr.io/oudyworks/browserless:buildcache,mode=max
       # - uses: actions/delete-package-versions@v5
       #   with: 
       #     package-name: 'browserless'
