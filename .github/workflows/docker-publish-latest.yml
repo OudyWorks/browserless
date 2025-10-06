@@ -103,8 +103,8 @@ jobs:
             linux/amd64
             linux/arm64
           provenance: false
-      - uses: actions/delete-package-versions@v5
-        with: 
-          package-name: 'browserless'
-          package-type: 'container'
-          delete-only-untagged-versions: 'true'
+      # - uses: actions/delete-package-versions@v5
+      #   with: 
+      #     package-name: 'browserless'
+      #     package-type: 'container'
+      #     delete-only-untagged-versions: 'true'
