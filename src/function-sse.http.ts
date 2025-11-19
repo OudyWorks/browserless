@@ -93,12 +93,18 @@ export default class ChromeFunctionPostRoute extends BrowserHTTPRoute {
     const config = this.config();
     config.getExternalAddress = () => 'http://localhost:3000';
     const handler = functionHandler(config, logger);
-    const { contentType, payload, page } = await handler(req, browser);
-    logger.info(`Got function response of "${contentType}" with payload:`, payload);
-    res.write(`data: ${JSON.stringify(JSON.parse(payload as string))}\n\n`);
-    res.end();
-    page.close();
-    page.removeAllListeners();
-    eventBus.removeAllListeners(__id__);
+    try {
+      const { contentType, payload, page } = await handler(req, browser);
+      logger.info(`Got function response of "${contentType}" with payload:`, payload);
+      res.write(`data: ${JSON.stringify(JSON.parse(payload as string))}\n\n`);
+      page.close();
+      page.removeAllListeners();
+    } catch (error) {
+      logger.error('Error in /function-sse route:', error);
+      res.write(`data: ${JSON.stringify({error})}\n\n`);
+    } finally {
+      res.end();
+      eventBus.removeAllListeners(__id__);
+    }
   }
 }
