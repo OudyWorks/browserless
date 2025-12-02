@@ -19,5 +19,5 @@
   "dependencies": {
     "@browserless.io/browserless": "^2.38.2"
   },
-  "packageManager": "pnpm@10.22.0"
+  "packageManager": "pnpm@10.24.0"
 }
