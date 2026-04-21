@@ -4,31 +4,17 @@ on:
   push:
     branches:
       - main
-  workflow_run:
-    workflows: ["Check for New Docker Package in Another Repo"]
-    types:
-      - completed
+  workflow_dispatch:
 
 jobs:
   push_to_registry:
     name: Push multi-platform docker images to ghcr.io
     runs-on: ubuntu-latest
-    # Only run the job if the trigger was a push to main, or if the triggering workflow was successful
-    if: github.event_name == 'push' || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Download tag artifact from triggering workflow
-        if: github.event_name == 'workflow_run'
-        uses: actions/download-artifact@v8
-        with:
-          name: new-tag-artifact
-          path: .
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          run-id: ${{ github.event.workflow_run.id }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -48,18 +34,29 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          # cache: "pnpm"
-
-      # - uses: pnpm/action-setup@v4
-      #   name: Install pnpm
-      #   with:
-      #     run_install: false
 
       - name: Install dependencies
         run: npm ci
 
-      # - name: Build
-      #   run: npm run build
+      - name: Extract @browserless.io/browserless version
+        id: get_version
+        run: |
+          VERSION=$(node -p "require('./node_modules/@browserless.io/browserless/package.json').version")
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "Extracted version: $VERSION"
+
+      - name: Check and create Git tag
+        run: |
+          VERSION=${{ steps.get_version.outputs.VERSION }}
+          if git rev-parse "refs/tags/$VERSION" >/dev/null 2>&1; then
+            echo "Tag $VERSION already exists. Skipping tagging."
+          else
+            echo "Tagging repo with $VERSION"
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git tag "$VERSION" -m "Automated release for version $VERSION"
+            git push origin "$VERSION"
+          fi
 
       - name: Prepare Dockerfile in a temporary directory
         run: |
@@ -79,19 +76,15 @@ jobs:
       - name: Determine Docker tags
         id: docker_tags
         run: |
-          if [[ -f new_tag.txt ]]; then
-            TAG=$(cat new_tag.txt)
-            echo "tags=ghcr.io/oudyworks/browserless:$TAG,ghcr.io/oudyworks/browserless:latest" >> $GITHUB_OUTPUT
-          else
-            echo "tags=ghcr.io/oudyworks/browserless:latest" >> $GITHUB_OUTPUT
-          fi
+          VERSION=${{ steps.get_version.outputs.VERSION }}
+          echo "tags=ghcr.io/oudyworks/browserless:$VERSION,ghcr.io/oudyworks/browserless:latest" >> $GITHUB_OUTPUT
 
       - name: Publish the latest Multi image
         uses: docker/build-push-action@v5
         with:
           build-args: |
-            VERSION=latest
-            FROM=ghcr.io/browserless/multi:latest
+            VERSION=${{ steps.get_version.outputs.VERSION }}
+            FROM=ghcr.io/browserless/multi:${{ steps.get_version.outputs.VERSION }}
           builder: ${{ steps.buildx.outputs.name }}
           # Use the Dockerfile from the temporary location
           file: /tmp/docker-build/Dockerfile
@@ -107,8 +100,3 @@ jobs:
           # Enable build cache for faster builds and better layer reuse
           cache-from: type=registry,ref=ghcr.io/oudyworks/browserless:buildcache
           cache-to: type=registry,ref=ghcr.io/oudyworks/browserless:buildcache,mode=max
-      # - uses: actions/delete-package-versions@v5
-      #   with: 
-      #     package-name: 'browserless'
-      #     package-type: 'container'
-      #     delete-only-untagged-versions: 'true'
