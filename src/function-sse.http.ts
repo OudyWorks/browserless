@@ -101,7 +101,7 @@ export default class ChromeFunctionPostRoute extends BrowserHTTPRoute {
       page.removeAllListeners();
     } catch (error: any) {
       logger.error('Error in /function-sse route:', error);
-      res.write(`data: ${JSON.stringify({error: error.message})}\n\n`);
+      res.write(`data: ${JSON.stringify({ error: error.message })}\n\n`);
     } finally {
       res.end();
       eventBus.removeAllListeners(__id__);
