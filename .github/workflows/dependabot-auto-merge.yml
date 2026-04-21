@@ -6,6 +6,8 @@ on:
 permissions:
   pull-requests: write
   contents: write
+  actions: write
+  workflows: write
 
 jobs:
   dependabot-merge:
