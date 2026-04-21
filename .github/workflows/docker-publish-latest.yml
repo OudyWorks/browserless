@@ -80,7 +80,7 @@ jobs:
           echo "tags=ghcr.io/oudyworks/browserless:$VERSION,ghcr.io/oudyworks/browserless:latest" >> $GITHUB_OUTPUT
 
       - name: Publish the latest Multi image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
         with:
           build-args: |
             VERSION=v${{ steps.get_version.outputs.VERSION }}
