@@ -47,7 +47,7 @@ jobs:
 
       - name: Check and create Git tag
         run: |
-          VERSION=${{ steps.get_version.outputs.VERSION }}
+          VERSION="v${{ steps.get_version.outputs.VERSION }}"
           if git rev-parse "refs/tags/$VERSION" >/dev/null 2>&1; then
             echo "Tag $VERSION already exists. Skipping tagging."
           else
@@ -76,15 +76,15 @@ jobs:
       - name: Determine Docker tags
         id: docker_tags
         run: |
-          VERSION=${{ steps.get_version.outputs.VERSION }}
+          VERSION="v${{ steps.get_version.outputs.VERSION }}"
           echo "tags=ghcr.io/oudyworks/browserless:$VERSION,ghcr.io/oudyworks/browserless:latest" >> $GITHUB_OUTPUT
 
       - name: Publish the latest Multi image
         uses: docker/build-push-action@v5
         with:
           build-args: |
-            VERSION=${{ steps.get_version.outputs.VERSION }}
-            FROM=ghcr.io/browserless/multi:${{ steps.get_version.outputs.VERSION }}
+            VERSION=v${{ steps.get_version.outputs.VERSION }}
+            FROM=ghcr.io/browserless/multi:v${{ steps.get_version.outputs.VERSION }}
           builder: ${{ steps.buildx.outputs.name }}
           # Use the Dockerfile from the temporary location
           file: /tmp/docker-build/Dockerfile
