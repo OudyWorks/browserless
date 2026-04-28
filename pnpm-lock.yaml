@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@browserless.io/browserless':
-        specifier: ^2.48.0
-        version: 2.48.0
+        specifier: ^2.48.2
+        version: 2.48.2
     devDependencies:
       playwright-core:
         specifier: ^1.59.1
@@ -28,8 +28,8 @@ packages:
   '@borewit/text-codec@0.2.2':
     resolution: {integrity: sha512-DDaRehssg1aNrH4+2hnj1B7vnUGEjU6OIlyRdkMd0aUdIUvKXrJfXsy8LVtXAy7DRvYVluWbMspsRhz2lcW0mQ==}
 
-  '@browserless.io/browserless@2.48.0':
-    resolution: {integrity: sha512-PZg2S/crv0Ua2ikmiNP6F2z5D/YjmLVdOw+KfbzW5GAddCJxvarT7fIigSgtYccqJ3hV0p3LxdjgZ8LetQhX2Q==}
+  '@browserless.io/browserless@2.48.2':
+    resolution: {integrity: sha512-Q8wOnps2ZNnA0vnMeRBZgiIeB1PNONfLuYFM2H4gHpxN+PzVk+pPiywA1c6QsuJKvuwlSAZ+Qjx81BnFaMrDJQ==}
     engines: {node: '>=24', npm: ^11.7.0}
     hasBin: true
 
@@ -833,8 +833,8 @@ packages:
   bare-path@3.0.0:
     resolution: {integrity: sha512-tyfW2cQcB5NN8Saijrhqn0Zh7AnFNsnczRcuWODH0eYAXBsJ5gVxAUuNr7tsHSC6IZ77cA0SitzT+s47kot8Mw==}
 
-  bare-stream@2.13.0:
-    resolution: {integrity: sha512-3zAJRZMDFGjdn+RVnNpF9kuELw+0Fl3lpndM4NcEOhb9zwtSo/deETfuIwMSE5BXanA0FrN1qVjffGwAg2Y7EA==}
+  bare-stream@2.13.1:
+    resolution: {integrity: sha512-Vp0cnjYyrEC4whYTymQ+YZi6pBpfiICZO3cfRG8sy67ZNWe951urv1x4eW1BKNngw3U+3fPYb5JQvHbCtxH7Ow==}
     peerDependencies:
       bare-abort-controller: '*'
       bare-buffer: '*'
@@ -2119,11 +2119,11 @@ packages:
   tinygradient@1.1.5:
     resolution: {integrity: sha512-8nIfc2vgQ4TeLnk2lFj4tRLvvJwEfQuabdsmvDdQPT0xlk9TaNtpGd6nNRxXoK6vQhN6RSzj+Cnp5tTQmpxmbw==}
 
-  tldts-core@7.0.28:
-    resolution: {integrity: sha512-7W5Efjhsc3chVdFhqtaU0KtK32J37Zcr9RKtID54nG+tIpcY79CQK/veYPODxtD/LJ4Lue66jvrQzIX2Z2/pUQ==}
+  tldts-core@7.0.29:
+    resolution: {integrity: sha512-W99NuU7b1DcG3uJ3v9k9VztCH3WialNbBkBft5wCs8V8mexu0XQqaZEYb9l9RNNzK8+3EJ9PKWB0/RUtTQ/o+Q==}
 
-  tldts-icann@7.0.28:
-    resolution: {integrity: sha512-brkN3yIgYTzBpSxB71XYBwUMDgutmKmA+6TWzgGD/EPcvCc6LHMTRaYj9ik1u3BxhSW53qIK/7cgjA2rF7BgbA==}
+  tldts-icann@7.0.29:
+    resolution: {integrity: sha512-+nmAzuVPQO6j50dVE1/c8tnTGEyvvfU1+/6EWF1C6YZQ2M+qH/LfIet0pWHFkKphZIOvjQHdk2NqLKduGTjRDA==}
 
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
@@ -2228,8 +2228,8 @@ packages:
     engines: {node: '>=6.0'}
     hasBin: true
 
-  web-features@3.24.0:
-    resolution: {integrity: sha512-D/e/FlTPpbTbSHwwS+8qgwP6E6TTlYnTJnSk/y80GKqlUVrtq69fpXZrcDy6GhNGgqUYtG8nOoiXj+Fh/a1dBQ==}
+  web-features@3.25.0:
+    resolution: {integrity: sha512-p4feOVUn9DU/xUdcGcM+GLWY1OPDXaTWbPNvI1jqPRg+UTQEl4RzEiRtLw1IBd5GE/XApcOYXr7ZRuWw6DR2MA==}
 
   webdriver-bidi-protocol@0.4.1:
     resolution: {integrity: sha512-ARrjNjtWRRs2w4Tk7nqrf2gBI0QXWuOmMCx2hU+1jUt6d00MjMxURrhxhGbrsoiZKJrhTSTzbIrc554iKI10qw==}
@@ -2329,7 +2329,7 @@ snapshots:
 
   '@borewit/text-codec@0.2.2': {}
 
-  '@browserless.io/browserless@2.48.0':
+  '@browserless.io/browserless@2.48.2':
     dependencies:
       '@hapi/bourne': 3.0.0
       '@hapi/hoek': 11.0.7
@@ -3281,7 +3281,7 @@ snapshots:
     dependencies:
       bare-events: 2.8.2
       bare-path: 3.0.0
-      bare-stream: 2.13.0(bare-events@2.8.2)
+      bare-stream: 2.13.1(bare-events@2.8.2)
       bare-url: 2.4.2
       fast-fifo: 1.3.2
     transitivePeerDependencies:
@@ -3294,7 +3294,7 @@ snapshots:
     dependencies:
       bare-os: 3.9.0
 
-  bare-stream@2.13.0(bare-events@2.8.2):
+  bare-stream@2.13.1(bare-events@2.8.2):
     dependencies:
       streamx: 2.25.0
       teex: 1.0.1
@@ -4191,8 +4191,8 @@ snapshots:
       robots-parser: 3.0.1
       speedline-core: 1.4.3
       third-party-web: 0.29.0
-      tldts-icann: 7.0.28
-      web-features: 3.24.0
+      tldts-icann: 7.0.29
+      web-features: 3.25.0
       ws: 7.5.10
       yargs: 17.7.2
       yargs-parser: 21.1.1
@@ -4819,11 +4819,11 @@ snapshots:
       '@types/tinycolor2': 1.4.6
       tinycolor2: 1.6.0
 
-  tldts-core@7.0.28: {}
+  tldts-core@7.0.29: {}
 
-  tldts-icann@7.0.28:
+  tldts-icann@7.0.29:
     dependencies:
-      tldts-core: 7.0.28
+      tldts-core: 7.0.29
 
   to-regex-range@5.0.1:
     dependencies:
@@ -4942,7 +4942,7 @@ snapshots:
       acorn-walk: 8.3.5
     optional: true
 
-  web-features@3.24.0: {}
+  web-features@3.25.0: {}
 
   webdriver-bidi-protocol@0.4.1: {}
 
