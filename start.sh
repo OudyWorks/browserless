@@ -20,7 +20,7 @@ then
   export DISPLAY=:99
 fi
 
-dumb-init -- npm run start $@ &
+dumb-init -- pnpm run start $@ &
 node=$!
 
 wait $node
