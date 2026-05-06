@@ -18,6 +18,9 @@ importers:
       puppeteer-core:
         specifier: ^24.42.0
         version: 24.42.0
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
 
 packages:
 
@@ -4901,8 +4904,7 @@ snapshots:
   typescript@5.5.4:
     optional: true
 
-  typescript@6.0.3:
-    optional: true
+  typescript@6.0.3: {}
 
   uint8array-extras@1.5.0: {}
 
