@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@browserless.io/browserless':
-        specifier: ^2.50.0
-        version: 2.50.0
+        specifier: ^2.50.1
+        version: 2.50.1
     devDependencies:
       '@types/mocha':
         specifier: ^10.0.10
@@ -33,8 +33,8 @@ packages:
   '@borewit/text-codec@0.2.2':
     resolution: {integrity: sha512-DDaRehssg1aNrH4+2hnj1B7vnUGEjU6OIlyRdkMd0aUdIUvKXrJfXsy8LVtXAy7DRvYVluWbMspsRhz2lcW0mQ==}
 
-  '@browserless.io/browserless@2.50.0':
-    resolution: {integrity: sha512-FKZnW+RRNYUd4oS9nZ/epZg7t90nktQBEeEu9J9gC2DxfUABo/U0XHNQ0snvPPbJxYvDw8+RrbzxQr3eeY6NZw==}
+  '@browserless.io/browserless@2.50.1':
+    resolution: {integrity: sha512-PVjUGGOxxtX7ji6ZLxu3fx0s5XLvXVlQGRfT2nco02C9Y5efEzv637MXhmcTU8w+Jm+W7py9L3PJ0tbOeXVlyQ==}
     engines: {node: '>=24', npm: ^11.7.0}
     hasBin: true
 
@@ -1185,8 +1185,8 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  systeminformation@5.31.6:
-    resolution: {integrity: sha512-Uv2b2uGGM6ns+26czgW2cYRabYdnswM0ddSOOlryHOaelzsmDSet1iM/NT7VOYxW8x/BW+HkY+b1Ve2pLTSGSA==}
+  systeminformation@5.31.7:
+    resolution: {integrity: sha512-/8NC53e5nP9nmhn42/ncdOkyJnOoue/Vy+tJOyUGd1Yv66G069wK4rrziwhrqDETgk78CudTQupw5z19S5uoZw==}
     engines: {node: '>=8.0.0'}
     os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
     hasBin: true
@@ -1329,7 +1329,7 @@ snapshots:
 
   '@borewit/text-codec@0.2.2': {}
 
-  '@browserless.io/browserless@2.50.0':
+  '@browserless.io/browserless@2.50.1':
     dependencies:
       ajv: 8.20.0
       debug: 4.4.3
@@ -1349,7 +1349,7 @@ snapshots:
       puppeteer-extra: 3.3.6(puppeteer-core@25.1.0)
       puppeteer-extra-plugin-stealth: 2.11.2(puppeteer-extra@3.3.6(puppeteer-core@25.1.0))
       queue: 7.0.0
-      systeminformation: 5.31.6
+      systeminformation: 5.31.7
       tar-fs: 3.1.2
     transitivePeerDependencies:
       - '@types/puppeteer'
@@ -2620,7 +2620,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  systeminformation@5.31.6: {}
+  systeminformation@5.31.7: {}
 
   tar-fs@3.1.2:
     dependencies:
