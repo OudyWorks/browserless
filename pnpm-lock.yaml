@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@browserless.io/browserless':
-        specifier: ^2.52.1
-        version: 2.52.1
+        specifier: ^2.52.2
+        version: 2.52.2
     devDependencies:
       '@types/mocha':
         specifier: ^10.0.10
@@ -33,8 +33,8 @@ packages:
   '@borewit/text-codec@0.2.2':
     resolution: {integrity: sha512-DDaRehssg1aNrH4+2hnj1B7vnUGEjU6OIlyRdkMd0aUdIUvKXrJfXsy8LVtXAy7DRvYVluWbMspsRhz2lcW0mQ==}
 
-  '@browserless.io/browserless@2.52.1':
-    resolution: {integrity: sha512-GRqpVtlZLlJfnFLE5O9BlJJv2cjcQgTZhRbdttcK4UwY5/dZpOApudjnTHi1P3cprD/njDm0qed+r45MUf4Z1Q==}
+  '@browserless.io/browserless@2.52.2':
+    resolution: {integrity: sha512-qojiF3S93Mp+iTb6FtQxbGnW3Ohl+HcPAr9HEEHqrqn3vdkuAu39a7i9nZlucoZu8CJEAa+I+2HYrXbGg39/jQ==}
     engines: {node: '>=24', npm: ^11.7.0}
     hasBin: true
 
@@ -1074,11 +1074,11 @@ packages:
   tinygradient@1.1.5:
     resolution: {integrity: sha512-8nIfc2vgQ4TeLnk2lFj4tRLvvJwEfQuabdsmvDdQPT0xlk9TaNtpGd6nNRxXoK6vQhN6RSzj+Cnp5tTQmpxmbw==}
 
-  tldts-core@7.4.2:
-    resolution: {integrity: sha512-nwEyF4vl4RSJjwSjBUmOSxc3BFPoIFdlRthJ6e+5v9P3bHNsoD06UjuqMUspqp7vsEZ1beaHi1km+optiE17yA==}
+  tldts-core@7.4.3:
+    resolution: {integrity: sha512-27ep5H9PzdBrNd5OFM/j3WCU8F3kPwM9D0BOaOf7uYfxMJfyr0K5Tjj69Gri+sZlh2WXd5buIm47NuPF29CDiw==}
 
-  tldts-icann@7.4.2:
-    resolution: {integrity: sha512-MiH8EqYa61dAa4L+eIeSTa95XAWimaOlAHw5cNViBhdaezOLQ3FKdVQOJ3li+BRJSkm8E2p+1m/EA6AOHQ/GPw==}
+  tldts-icann@7.4.3:
+    resolution: {integrity: sha512-9XCxITTKwJZ1VP3NmW3jZrtZFbUs9c6MoczqtvQXQddBdlxXF/6BXDe9SvR3TcHg8yYttEqoQmbLibR8R2XIJQ==}
 
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
@@ -1185,7 +1185,7 @@ snapshots:
 
   '@borewit/text-codec@0.2.2': {}
 
-  '@browserless.io/browserless@2.52.1':
+  '@browserless.io/browserless@2.52.2':
     dependencies:
       ajv: 8.20.0
       debug: 4.4.3
@@ -2034,7 +2034,7 @@ snapshots:
       robots-parser: 3.0.1
       speedline-core: 1.4.3
       third-party-web: 0.29.2
-      tldts-icann: 7.4.2
+      tldts-icann: 7.4.3
       web-features: 3.30.0
       ws: 7.5.11
       yargs: 17.7.2
@@ -2343,11 +2343,11 @@ snapshots:
       '@types/tinycolor2': 1.4.6
       tinycolor2: 1.6.0
 
-  tldts-core@7.4.2: {}
+  tldts-core@7.4.3: {}
 
-  tldts-icann@7.4.2:
+  tldts-icann@7.4.3:
     dependencies:
-      tldts-core: 7.4.2
+      tldts-core: 7.4.3
 
   to-regex-range@5.0.1:
     dependencies:
