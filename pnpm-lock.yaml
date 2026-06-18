@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@browserless.io/browserless':
-        specifier: ^2.52.2
-        version: 2.52.2
+        specifier: ^2.53.1
+        version: 2.53.1
     devDependencies:
       '@types/mocha':
         specifier: ^10.0.10
@@ -33,8 +33,8 @@ packages:
   '@borewit/text-codec@0.2.2':
     resolution: {integrity: sha512-DDaRehssg1aNrH4+2hnj1B7vnUGEjU6OIlyRdkMd0aUdIUvKXrJfXsy8LVtXAy7DRvYVluWbMspsRhz2lcW0mQ==}
 
-  '@browserless.io/browserless@2.52.2':
-    resolution: {integrity: sha512-qojiF3S93Mp+iTb6FtQxbGnW3Ohl+HcPAr9HEEHqrqn3vdkuAu39a7i9nZlucoZu8CJEAa+I+2HYrXbGg39/jQ==}
+  '@browserless.io/browserless@2.53.1':
+    resolution: {integrity: sha512-5z/5OJ+lEVsTpTVw72trxLXQduebUWvs3zRg0HzN6hwrAFAiDSOzBJ5rDiuybvkfnt4aIsD5F3GSaHE8q6aIOA==}
     engines: {node: '>=24', npm: ^11.7.0}
     hasBin: true
 
@@ -845,11 +845,6 @@ packages:
     resolution: {integrity: sha512-V7+vQEJ06Z+c5tSye8S+nHUfI51xoXIXjHQ99cQtKUkQqqO1kO/KCJUfZXuB47h/YBlDhah2H3hdUGXn8ie0oA==}
     engines: {node: '>=8.6'}
 
-  playwright-core@1.56.1:
-    resolution: {integrity: sha512-hutraynyn31F+Bifme+Ps9Vq59hKuUCz7H1kDOcBs+2oGguKkWTU50bBWrtz34OUWmIwpBTWDxaRPXrIXkgvmQ==}
-    engines: {node: '>=18'}
-    hasBin: true
-
   playwright-core@1.57.0:
     resolution: {integrity: sha512-agTcKlMw/mjBWOnD6kFZttAAGHgi/Nw0CZ2o6JqWSbMlI219lAFLZZCyqByTsvVAJq5XA5H8cA6PrvBRpBWEuQ==}
     engines: {node: '>=18'}
@@ -1190,7 +1185,7 @@ snapshots:
 
   '@borewit/text-codec@0.2.2': {}
 
-  '@browserless.io/browserless@2.52.2':
+  '@browserless.io/browserless@2.53.1':
     dependencies:
       ajv: 8.20.0
       debug: 4.4.3
@@ -1201,11 +1196,11 @@ snapshots:
       http-proxy: 1.18.1(debug@4.4.3)
       lighthouse: 13.4.0
       micromatch: 4.0.8
-      playwright-1.56: playwright-core@1.56.1
       playwright-1.57: playwright-core@1.57.0
       playwright-1.58: playwright-core@1.58.2
       playwright-1.59: playwright-core@1.59.1
-      playwright-core: 1.60.0
+      playwright-1.60: playwright-core@1.60.0
+      playwright-core: 1.61.0
       puppeteer-core: 25.1.0
       puppeteer-extra: 3.3.6(puppeteer-core@25.1.0)
       puppeteer-extra-plugin-stealth: 2.11.2(puppeteer-extra@3.3.6(puppeteer-core@25.1.0))
@@ -2121,8 +2116,6 @@ snapshots:
       postgres-interval: 1.2.0
 
   picomatch@2.3.2: {}
-
-  playwright-core@1.56.1: {}
 
   playwright-core@1.57.0: {}
 
