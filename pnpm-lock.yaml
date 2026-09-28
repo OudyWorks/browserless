@@ -22,8 +22,8 @@ importers:
         specifier: ^1.63.0
         version: 1.63.0
       puppeteer-core:
-        specifier: ^25.11.0
-        version: 25.11.0
+        specifier: ^25.12.0
+        version: 25.12.0
       typescript:
         specifier: ^7.0.2
         version: 7.0.2
@@ -112,6 +112,19 @@ packages:
 
   '@puppeteer/browsers@3.2.2':
     resolution: {integrity: sha512-q2BU4YfO9h/Wt7IcWPcggpOOqLk2Tbs1hDwolvKZrweRjy751OJBKMN9zO5bfD0pzU7X/tvKw/exQds4pM/LOg==}
+    engines: {node: '>=22.12.0'}
+    hasBin: true
+    peerDependencies:
+      proxy-agent: '>=8.0.1'
+      yauzl: ^2.10.0 || ^3.4.0
+    peerDependenciesMeta:
+      proxy-agent:
+        optional: true
+      yauzl:
+        optional: true
+
+  '@puppeteer/browsers@3.2.3':
+    resolution: {integrity: sha512-2Bt3m6dDAJqmZehn0wiXSYyQmuhyiHHZ7FjvrVaS1W2RoFGV6eCK71UvKYkNJjkwC1Q9nobjhvTMhLQztFVINA==}
     engines: {node: '>=22.12.0'}
     hasBin: true
     peerDependencies:
@@ -531,8 +544,8 @@ packages:
   devtools-protocol@0.0.1666840:
     resolution: {integrity: sha512-gCcO42XCHKEs7Ag0S7aGYsnJ7hlgrO3qderYqeiY0Eqk+0GFfuvT13IA0hHreJTa2KCdDVyGMeOhdMNmrrTjVg==}
 
-  devtools-protocol@0.0.1680125:
-    resolution: {integrity: sha512-rVARKAvOFJCFkvgX01VLvYqKIvt+cRCqvUxIhB2oAqVGPalxk3w3sb5TUGDagpow/EFblBpm/Zl/29QA2dd+jA==}
+  devtools-protocol@0.0.1687809:
+    resolution: {integrity: sha512-t7kSb+UKYdyxcmqy98U2P86ne6rCve3DIJ4+lp54i/hhClgFuG35JrLj23rO14Jw3sWDsp7i+22QhNU0+/qk8g==}
 
   dot-prop@9.0.0:
     resolution: {integrity: sha512-1gxPBJpI/pcjQhKgIU91II6Wkay+dLcN3M6rf2uwP8hRur3HtQXjVrdAK3sjC0piaEuxzMwjXChcETiJl47lAQ==}
@@ -617,8 +630,8 @@ packages:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
     engines: {node: 6.* || 8.* || >= 10.*}
 
-  get-east-asian-width@1.6.0:
-    resolution: {integrity: sha512-QRbvDIbx6YklUe6RxeTeleMR0yv3cYH6PsPZHcnVn7xv7zO1BHN8r0XETu8n6Ye3Q+ahtSarc3WgtNWmehIBfA==}
+  get-east-asian-width@1.7.0:
+    resolution: {integrity: sha512-XjH1AECxf0giL2V1aU8vKyRR2ppRUb5c0EvT7zuJTokQ74bNo52zOtghqdWIqrhUD79fo3x0WfKZdOqxF6LG1Q==}
     engines: {node: '>=18'}
 
   get-port@7.2.0:
@@ -846,8 +859,8 @@ packages:
     resolution: {integrity: sha512-Hy5eMQshOEMil4JUUx03h5pw1HYkYCso1RG/gcpPlFSd4cYPOcopxcXEAxpLPOkOPJb9LIJtwxuj66bSdvknFg==}
     engines: {node: '>=22.12.0'}
 
-  puppeteer-core@25.11.0:
-    resolution: {integrity: sha512-Ujym7JbxoAqanaxGcHgmTomfhC01HfDCSuGZ8Hs9boHrDjzbNVMnFRJo2KtbDT9LCRgeJoFnkn9JQZ41eEUrLw==}
+  puppeteer-core@25.12.0:
+    resolution: {integrity: sha512-z6LQUt5SH7jwGtGA+nMtJuEjZIsqPiwQ+EFHCYuVDQrJpvifNmmGuyDvTzAKPyFzihxgHc5f3aMzu2kn8Ps37A==}
     engines: {node: '>=22.12.0'}
 
   queue-microtask@1.2.3:
@@ -905,8 +918,8 @@ packages:
     resolution: {integrity: sha512-tsaTIkKW9b4N+AEj+SVA+WhJzV7/zMhcSu78mLKWSk7cXMOSHsBKFWUs0fWwq8QyK3MgJBQRX6Gbi4kYbdvGkQ==}
     engines: {node: '>=18'}
 
-  string-width@8.2.2:
-    resolution: {integrity: sha512-GaPUh5gfdrYzqeVNZvUfT23vYYxXzKYidUcnMtJg/3rxRV63EFZy3k6xfKlmfeJD0176lnUV/Usr3XcwSvFzpg==}
+  string-width@8.3.0:
+    resolution: {integrity: sha512-ZbmZM0JCihQN91dWnxoipT2KOEyHqEyfRXUyjuRhW8b/xnqPDoq4gWEVApTVa9db2wN8mmoikgFBbjh71+cGeQ==}
     engines: {node: '>=20'}
 
   strip-ansi@6.0.1:
@@ -1061,8 +1074,8 @@ packages:
     resolution: {integrity: sha512-GZtjxm/J/4TSxuL3FNYjCmLktBTnIw/rVmKSIyKeYAZpmJB2ig9VauCC5xsa82GNKVKDAqpOn3KVzNt0zmrU0g==}
     engines: {node: '>=12'}
 
-  yargs@18.1.0:
-    resolution: {integrity: sha512-2rAgRKu54VsHkqI0/tYkmluGXHD4KW7yZoycuqDQ15QOTnc2VVfy0nN/1eMhnQLO00A+dwtK20xuCnc1YGeUyg==}
+  yargs@18.2.0:
+    resolution: {integrity: sha512-9OpKOLeaoNFecEp7P6iYbzze/5CqWoH7N3SMs/6y1XF4nMvFMspEGZzJ6uFi9MmQwXhyzqYoSEKO3tvA3Z/o2w==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=23}
 
   zod@3.25.76:
@@ -1075,7 +1088,7 @@ snapshots:
   '@browserless.io/browserless@2.56.7(@opentelemetry/core@2.11.0(@opentelemetry/api@1.9.1))':
     dependencies:
       '@zorilla/puppeteer-extra': 2.0.2(puppeteer-core@25.10.0)
-      '@zorilla/puppeteer-extra-plugin-stealth': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.11.0))
+      '@zorilla/puppeteer-extra-plugin-stealth': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.10.0))
       ajv: 8.20.0
       debug: 4.4.3
       del: 8.0.1
@@ -1198,7 +1211,12 @@ snapshots:
   '@puppeteer/browsers@3.2.2':
     dependencies:
       modern-tar: 0.8.5
-      yargs: 18.1.0
+      yargs: 18.2.0
+
+  '@puppeteer/browsers@3.2.3':
+    dependencies:
+      modern-tar: 0.8.5
+      yargs: 18.2.0
 
   '@sentry/conventions@0.16.0': {}
 
@@ -1332,29 +1350,29 @@ snapshots:
   '@typescript/typescript-win32-x64@7.0.2':
     optional: true
 
-  '@zorilla/puppeteer-extra-plugin-stealth@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.11.0))':
+  '@zorilla/puppeteer-extra-plugin-stealth@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.10.0))':
     dependencies:
-      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.11.0))
-      '@zorilla/puppeteer-extra-plugin-user-preferences': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.11.0))
+      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.10.0))
+      '@zorilla/puppeteer-extra-plugin-user-preferences': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.10.0))
       debug: 4.4.3
     optionalDependencies:
       '@zorilla/puppeteer-extra': 2.0.2(puppeteer-core@25.10.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@zorilla/puppeteer-extra-plugin-user-data-dir@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.11.0))':
+  '@zorilla/puppeteer-extra-plugin-user-data-dir@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.10.0))':
     dependencies:
-      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.11.0))
+      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.10.0))
       debug: 4.4.3
     optionalDependencies:
       '@zorilla/puppeteer-extra': 2.0.2(puppeteer-core@25.10.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@zorilla/puppeteer-extra-plugin-user-preferences@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.11.0))':
+  '@zorilla/puppeteer-extra-plugin-user-preferences@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.10.0))':
     dependencies:
-      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.11.0))
-      '@zorilla/puppeteer-extra-plugin-user-data-dir': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.11.0))
+      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.10.0))
+      '@zorilla/puppeteer-extra-plugin-user-data-dir': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.10.0))
       debug: 4.4.3
       deepmerge: 4.3.1
     optionalDependencies:
@@ -1362,7 +1380,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@zorilla/puppeteer-extra-plugin@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.11.0))':
+  '@zorilla/puppeteer-extra-plugin@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.10.0))':
     dependencies:
       '@types/debug': 4.1.13
       debug: 4.4.3
@@ -1462,9 +1480,9 @@ snapshots:
       mitt: 3.0.1
       zod: 3.25.76
 
-  chromium-bidi@17.0.2(devtools-protocol@0.0.1680125):
+  chromium-bidi@17.0.2(devtools-protocol@0.0.1687809):
     dependencies:
-      devtools-protocol: 0.0.1680125
+      devtools-protocol: 0.0.1687809
       mitt: 3.0.1
       zod: 3.25.76
 
@@ -1529,7 +1547,7 @@ snapshots:
 
   devtools-protocol@0.0.1666840: {}
 
-  devtools-protocol@0.0.1680125: {}
+  devtools-protocol@0.0.1687809: {}
 
   dot-prop@9.0.0:
     dependencies:
@@ -1607,7 +1625,7 @@ snapshots:
 
   get-caller-file@2.0.5: {}
 
-  get-east-asian-width@1.6.0: {}
+  get-east-asian-width@1.7.0: {}
 
   get-port@7.2.0: {}
 
@@ -1738,7 +1756,7 @@ snapshots:
       lodash-es: 4.18.1
       lookup-closest-locale: 6.2.0
       open: 8.4.2
-      puppeteer-core: 25.11.0
+      puppeteer-core: 25.12.0
       robots-parser: 3.0.1
       speedline-core: 1.4.3
       third-party-web: 0.29.2
@@ -1835,11 +1853,11 @@ snapshots:
       - utf-8-validate
       - yauzl
 
-  puppeteer-core@25.11.0:
+  puppeteer-core@25.12.0:
     dependencies:
-      '@puppeteer/browsers': 3.2.2
-      chromium-bidi: 17.0.2(devtools-protocol@0.0.1680125)
-      devtools-protocol: 0.0.1680125
+      '@puppeteer/browsers': 3.2.3
+      chromium-bidi: 17.0.2(devtools-protocol@0.0.1687809)
+      devtools-protocol: 0.0.1687809
       typed-query-selector: 2.12.2
       webdriver-bidi-protocol: 0.4.3
       ws: 8.21.3
@@ -1907,12 +1925,12 @@ snapshots:
   string-width@7.2.0:
     dependencies:
       emoji-regex: 10.6.0
-      get-east-asian-width: 1.6.0
+      get-east-asian-width: 1.7.0
       strip-ansi: 7.2.0
 
-  string-width@8.2.2:
+  string-width@8.3.0:
     dependencies:
-      get-east-asian-width: 1.6.0
+      get-east-asian-width: 1.7.0
       strip-ansi: 7.2.0
 
   strip-ansi@6.0.1:
@@ -2075,12 +2093,12 @@ snapshots:
       y18n: 5.0.8
       yargs-parser: 21.1.1
 
-  yargs@18.1.0:
+  yargs@18.2.0:
     dependencies:
       cliui: 9.0.1
       escalade: 3.2.0
       get-caller-file: 2.0.5
-      string-width: 8.2.2
+      string-width: 8.3.0
       y18n: 5.0.8
       yargs-parser: 22.0.0
 
