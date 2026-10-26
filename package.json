@@ -17,7 +17,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@browserless.io/browserless": "^2.57.1"
+    "@browserless.io/browserless": "^2.57.3"
   },
   "playwrightVersions": {
     "default": "playwright-core"
