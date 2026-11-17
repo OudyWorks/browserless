@@ -19,8 +19,8 @@ importers:
         specifier: ^26.6.6
         version: 26.6.6
       playwright-core:
-        specifier: ^1.65.0
-        version: 1.65.0
+        specifier: ^1.65.1
+        version: 1.65.1
       puppeteer-core:
         specifier: ^25.17.0
         version: 25.17.0
@@ -971,6 +971,11 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
+  playwright-core@1.65.1:
+    resolution: {integrity: sha512-hqPpz7blSMPxWVdoeE1yiBSzXsKiVOd2k+kjCvmUywD2GPO2Dd9HfcWnq9NN0GHbNZDFgZ9JfBFr+X5/BLo0qw==}
+    engines: {node: '>=20'}
+    hasBin: true
+
   powershell-utils@0.2.1:
     resolution: {integrity: sha512-C+y9x90UElAddDZmV4qOx9W53B61PO7cIqWz2dQsWlwswuq4mr8NEwytdGKboYbQlGZ3awrkTeNvcZiZNHnQ8A==}
     engines: {node: '>=20'}
@@ -1205,7 +1210,7 @@ snapshots:
   '@browserless.io/browserless@2.63.0(bare-buffer@3.7.2)':
     dependencies:
       '@zorilla/puppeteer-extra': 2.0.2(puppeteer-core@25.16.0)
-      '@zorilla/puppeteer-extra-plugin-stealth': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))
+      '@zorilla/puppeteer-extra-plugin-stealth': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))
       ajv: 8.20.0
       debug: 4.4.3
       del: 9.0.1
@@ -1487,29 +1492,29 @@ snapshots:
   '@typescript/typescript-win32-x64@7.0.2':
     optional: true
 
-  '@zorilla/puppeteer-extra-plugin-stealth@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))':
+  '@zorilla/puppeteer-extra-plugin-stealth@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))':
     dependencies:
-      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))
-      '@zorilla/puppeteer-extra-plugin-user-preferences': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))
+      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))
+      '@zorilla/puppeteer-extra-plugin-user-preferences': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))
       debug: 4.4.3
     optionalDependencies:
       '@zorilla/puppeteer-extra': 2.0.2(puppeteer-core@25.16.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@zorilla/puppeteer-extra-plugin-user-data-dir@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))':
+  '@zorilla/puppeteer-extra-plugin-user-data-dir@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))':
     dependencies:
-      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))
+      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))
       debug: 4.4.3
     optionalDependencies:
       '@zorilla/puppeteer-extra': 2.0.2(puppeteer-core@25.16.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@zorilla/puppeteer-extra-plugin-user-preferences@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))':
+  '@zorilla/puppeteer-extra-plugin-user-preferences@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))':
     dependencies:
-      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))
-      '@zorilla/puppeteer-extra-plugin-user-data-dir': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))
+      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))
+      '@zorilla/puppeteer-extra-plugin-user-data-dir': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))
       debug: 4.4.3
       deepmerge: 4.3.1
     optionalDependencies:
@@ -1517,7 +1522,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@zorilla/puppeteer-extra-plugin@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))':
+  '@zorilla/puppeteer-extra-plugin@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))':
     dependencies:
       '@types/debug': 4.1.13
       debug: 4.4.3
@@ -2021,6 +2026,8 @@ snapshots:
   playwright-core@1.64.1: {}
 
   playwright-core@1.65.0: {}
+
+  playwright-core@1.65.1: {}
 
   powershell-utils@0.2.1: {}
 
