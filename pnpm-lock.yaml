@@ -22,8 +22,8 @@ importers:
         specifier: ^1.65.1
         version: 1.65.1
       puppeteer-core:
-        specifier: ^25.17.0
-        version: 25.17.0
+        specifier: ^25.18.1
+        version: 25.18.1
       typescript:
         specifier: ^7.0.2
         version: 7.0.2
@@ -991,8 +991,8 @@ packages:
     resolution: {integrity: sha512-VA5Pf54N8shfopNkZZXCdiiwfnnY8ZJYAMqFQRhlH5mGUhfwf53Ar770GPtdpTDLUqvQeYpIBtC9/G2Jij2IJw==}
     engines: {node: '>=22.12.0'}
 
-  puppeteer-core@25.17.0:
-    resolution: {integrity: sha512-YAgBitkd+K9gxRt+wzBAFTTkGjkC8aC2o4OxofsU8JUy2nnK/RflTCJ9bRCvCMNbq9TPhqFk4Phz98otN9FrGg==}
+  puppeteer-core@25.18.1:
+    resolution: {integrity: sha512-C0wHOJHDfAggGBtN5uUfsJGpeSKtPL5jzhgQYDuz4XKeOG1FUkxeZI2M5yK7AUyrdHO+RgDuiCfjmOpcw3PYTA==}
     engines: {node: '>=22.12.0'}
 
   queue-microtask@1.2.3:
@@ -1121,8 +1121,8 @@ packages:
     resolution: {integrity: sha512-NoSdpq/WEiAg5sjmBkmV/hfxv6HJH4NqPNrqjtSO5CwRmpsDfaf4begxW34KdJykH/l1yHtwBWQkCRdoXO8mPA==}
     engines: {node: '>=20'}
 
-  typed-query-selector@2.12.3:
-    resolution: {integrity: sha512-/dtuMZyutHLlrxWhhC1uib00ELUr2dZ8C9B8YzZYsJmeE3V56OxRblrSM2UaF142pcMtak7ehZ6+poWGeehNIg==}
+  typed-query-selector@2.12.4:
+    resolution: {integrity: sha512-lF6/OY655DSWZeuNovde8TZhju6QyC0Xtav57b07oZQ1EQvfSowA3+WfLEhvFJOc9sVfAtW5hie1lGIppOqbpQ==}
 
   typescript@7.0.2:
     resolution: {integrity: sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA==}
@@ -1155,18 +1155,6 @@ packages:
 
   wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
-
-  ws@8.22.2:
-    resolution: {integrity: sha512-/rEZ2ejown2N5gxVTHUu9bVVC7ttu0/Tgzf5hbTOixR3Fs7mbbXgn2DbdbcKgJOmpQMtrIUWivtYuVMnp/W/yA==}
-    engines: {node: '>=10.0.0'}
-    peerDependencies:
-      bufferutil: ^4.0.1
-      utf-8-validate: '>=5.0.2'
-    peerDependenciesMeta:
-      bufferutil:
-        optional: true
-      utf-8-validate:
-        optional: true
 
   ws@8.23.0:
     resolution: {integrity: sha512-wCkmX8QMOrKjgO8HW2WyDbTSGeqkocxgDzS9iR79rEAexty6/2qzilx3Ag8Tqf9ykop3irLKle0MtVn5qjVnoQ==}
@@ -1210,7 +1198,7 @@ snapshots:
   '@browserless.io/browserless@2.63.0(bare-buffer@3.7.2)':
     dependencies:
       '@zorilla/puppeteer-extra': 2.0.2(puppeteer-core@25.16.0)
-      '@zorilla/puppeteer-extra-plugin-stealth': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))
+      '@zorilla/puppeteer-extra-plugin-stealth': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))
       ajv: 8.20.0
       debug: 4.4.3
       del: 9.0.1
@@ -1492,29 +1480,29 @@ snapshots:
   '@typescript/typescript-win32-x64@7.0.2':
     optional: true
 
-  '@zorilla/puppeteer-extra-plugin-stealth@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))':
+  '@zorilla/puppeteer-extra-plugin-stealth@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))':
     dependencies:
-      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))
-      '@zorilla/puppeteer-extra-plugin-user-preferences': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))
+      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))
+      '@zorilla/puppeteer-extra-plugin-user-preferences': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))
       debug: 4.4.3
     optionalDependencies:
       '@zorilla/puppeteer-extra': 2.0.2(puppeteer-core@25.16.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@zorilla/puppeteer-extra-plugin-user-data-dir@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))':
+  '@zorilla/puppeteer-extra-plugin-user-data-dir@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))':
     dependencies:
-      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))
+      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))
       debug: 4.4.3
     optionalDependencies:
       '@zorilla/puppeteer-extra': 2.0.2(puppeteer-core@25.16.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@zorilla/puppeteer-extra-plugin-user-preferences@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))':
+  '@zorilla/puppeteer-extra-plugin-user-preferences@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))':
     dependencies:
-      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))
-      '@zorilla/puppeteer-extra-plugin-user-data-dir': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))
+      '@zorilla/puppeteer-extra-plugin': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))
+      '@zorilla/puppeteer-extra-plugin-user-data-dir': 2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))
       debug: 4.4.3
       deepmerge: 4.3.1
     optionalDependencies:
@@ -1522,7 +1510,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@zorilla/puppeteer-extra-plugin@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.17.0))':
+  '@zorilla/puppeteer-extra-plugin@2.0.1(@zorilla/puppeteer-extra@2.0.2(puppeteer-core@25.16.0))':
     dependencies:
       '@types/debug': 4.1.13
       debug: 4.4.3
@@ -1915,7 +1903,7 @@ snapshots:
       lighthouse-logger: 2.0.2
       lighthouse-stack-packs: 1.12.3
       open: 11.0.4
-      puppeteer-core: 25.17.0
+      puppeteer-core: 25.18.1
       robots-parser: 3.0.1
       speedline-core: 1.4.3
       third-party-web: 0.30.0
@@ -2043,7 +2031,7 @@ snapshots:
       '@puppeteer/browsers': 3.2.6
       chromium-bidi: 157.0.8090-0(devtools-protocol@0.0.1704951)
       devtools-protocol: 0.0.1704951
-      typed-query-selector: 2.12.3
+      typed-query-selector: 2.12.4
       webdriver-bidi-protocol: 1.0.1
       ws: 8.23.0
     transitivePeerDependencies:
@@ -2052,14 +2040,14 @@ snapshots:
       - utf-8-validate
       - yauzl
 
-  puppeteer-core@25.17.0:
+  puppeteer-core@25.18.1:
     dependencies:
       '@puppeteer/browsers': 3.2.7
       chromium-bidi: 157.0.8090-0(devtools-protocol@0.0.1717327)
       devtools-protocol: 0.0.1717327
-      typed-query-selector: 2.12.3
+      typed-query-selector: 2.12.4
       webdriver-bidi-protocol: 1.0.2
-      ws: 8.22.2
+      ws: 8.23.0
     transitivePeerDependencies:
       - bufferutil
       - proxy-agent
@@ -2210,7 +2198,7 @@ snapshots:
     dependencies:
       tagged-tag: 1.0.0
 
-  typed-query-selector@2.12.3: {}
+  typed-query-selector@2.12.4: {}
 
   typescript@7.0.2:
     optionalDependencies:
@@ -2254,8 +2242,6 @@ snapshots:
       strip-ansi: 7.2.0
 
   wrappy@1.0.2: {}
-
-  ws@8.22.2: {}
 
   ws@8.23.0: {}
 
