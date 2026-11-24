@@ -36,7 +36,7 @@ jobs:
           node-version: 24
 
       - name: Install dependencies
-        run: corepack enable pnpm && pnpm install --frozen-lockfile
+        run: npm clean-install
 
       - name: Extract @browserless.io/browserless version
         id: get_version
@@ -70,9 +70,6 @@ jobs:
           sed -i '/COPY src src/a COPY static static' /tmp/docker-build/Dockerfile
           sed -i '/COPY static static/a COPY start.sh .' /tmp/docker-build/Dockerfile
           sed -i '/COPY start.sh .*/a RUN chmod +x ./start.sh' /tmp/docker-build/Dockerfile
-          sed -i 's|package-lock.json|pnpm-lock.yaml pnpm-workspace.yaml|' /tmp/docker-build/Dockerfile
-          sed -i -E 's|npm clean-install( --include=dev)?|corepack enable pnpm ; pnpm install --frozen-lockfile --prod=false \&\& (cd node_modules/@browserless.io/browserless \&\& pnpm install --prod=false --ignore-workspace --ignore-scripts)|' /tmp/docker-build/Dockerfile
-          sed -i 's|npm run build|pnpm run build|' /tmp/docker-build/Dockerfile
           sed -i 's|CMD \["npm", "start"\]|CMD \["./start.sh"\]|' /tmp/docker-build/Dockerfile
 
       - name: Determine Docker tags
